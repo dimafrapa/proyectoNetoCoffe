@@ -57,6 +57,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#home" class="smoothScroll">{{ trans('Inicio') }}</a></li>
                 <li><a href="#desc" class="smoothScroll">{{ trans('Descripción') }}</a></li>
+                <li><a href="#showcase" class="smoothScroll">{{ trans('Galeria') }}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
@@ -76,12 +77,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <div class="container">
         <div class="row centered">
             <div class="col-lg-12">
-                <h1>NetoCafe</h1>
-
-                <h3>Cafe - Bar Dulcinea </h3>
+                <h1>Acacha <b><a href="https://github.com/acacha/adminlte-laravel">adminlte-laravel</a></b></h1>
+                <h3>A <a href="https://laravel.com/">Laravel</a> {{ trans('adminlte_lang::message.laravelpackage') }}
+                    scaffolding/boilerplate {{ trans('adminlte_lang::message.to') }} <a href="https://almsaeedstudio.com/preview">AdminLTE</a> {{ trans('adminlte_lang::message.templatewith') }}
+                    <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 {{ trans('adminlte_lang::message.and') }} <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
+                <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ trans('Iniciar Sección') }}</a></h3>
             </div>
             <div class="col-lg-2">
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/imagenPortada.jpg') }}">
+                <h5>{{ trans('adminlte_lang::message.amazing') }}</h5>
+                <p>{{ trans('adminlte_lang::message.basedadminlte') }}</p>
+                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow1.png') }}">
             </div>
             <div class="col-lg-8">
                 <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
@@ -203,6 +208,52 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     </div><!--/ .container -->
 </div><!--/ #features -->
 
+
+<section id="showcase" name="showcase"></section>
+<div id="showcase">
+    <div class="container">
+        <div class="row">
+            <h1 class="centered">{{ trans('adminlte_lang::message.screenshots') }}</h1>
+            <br>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div id="carousel-example-generic" class="carousel slide">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="{{ asset('/img/item-01.png') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/img/item-02.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div><!-- /container -->
+</div>
+
+<div id="c">
+    <div class="container">
+        <p>
+            <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('adminlte_lang::message.descriptionpackage') }}.<br/>
+            <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/acacha/adminlte-laravel">Github</a>
+            <br/>
+            AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
+            <br/>
+             Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
+        </p>
+
+    </div>
+</div>
 
 
 <!-- Bootstrap core JavaScript
