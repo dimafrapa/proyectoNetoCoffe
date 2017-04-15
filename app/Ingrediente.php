@@ -8,13 +8,6 @@ class Ingrediente extends Model
 {
         protected $table="ingredientes";
     protected  $fillable=[
-        'nombre_ingrediente','costo_supermercado',
+        'nombre_ingrediente','unidad_medida','cantidad_ingrediente','costo_supermercado_ingrediente',
     ];
-    public function producto(){
-        return $this->belongsTo('App\Producto');
-    }
-
-    public function tipo(){
-        return $this->belongsTo('App\Tipo');
-    }
 }

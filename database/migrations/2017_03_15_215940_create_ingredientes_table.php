@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIngredienteTable extends Migration
+class CreateIngredientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,18 +15,10 @@ class CreateIngredienteTable extends Migration
           Schema::create('ingredientes', function (Blueprint $table) {
             $table->increments('id_ingrediente');
             $table->string('nombre_ingrediente');
-            $table->string('costo_supermercado');
+            $table->string('unidad_medida');
+            $table->integer('cantidad_ingrediente');
+            $table->integer('costo_supermercado_ingrediente');
             $table->timestamps();
-        });
-
-          Schema::table('ingredientes', function ($table) {
-            $table->integer('producto_id')->unsigned();
-            $table->foreign('producto_id')->references('id_producto')->on('productos');
-        });
-
-        Schema::table('ingredientes', function ($table) {
-            $table->integer('tipo_id')->unsigned();
-            $table->foreign('tipo_id')->references('id_tipo')->on('tipos');
         });
     }
 

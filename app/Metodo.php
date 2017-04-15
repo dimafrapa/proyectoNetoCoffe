@@ -8,10 +8,6 @@ class Metodo extends Model
 {
     protected $table="metodos";
     protected  $fillable=[
-        'nombre_metodo','costo_extra',
+        'nombre_metodo','descripcion_metodo','tiempo_aprox_metodo','categoria_metodo',
     ];
-
-    	public function preparacion(){
-        return $this->hashMany('App\Preparacion');
-    }
-
+}

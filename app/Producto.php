@@ -8,9 +8,6 @@ class Producto extends Model
 {
     protected $table="productos";
     protected  $fillable=[
-        'nombre_producto',
+        'nombre_producto','precio_de_venta',
     ];
-   	public function ingrediente(){
-        return $this->hashMany('App\Ingrediente');
-    }
 }
