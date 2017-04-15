@@ -80,7 +80,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ trans('Iniciar') }}</a></h3>
             </div>
             <div class="col-lg-8">
-                <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
+                <img class="img-responsive" src="{{ asset('/img/dashboard.png') }}" alt="">
             </div>
         </div>
     </div> <!--/ .container -->
