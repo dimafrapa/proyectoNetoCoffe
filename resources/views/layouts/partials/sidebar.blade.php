@@ -37,7 +37,7 @@
             <li class="treeview">
                 <a href="#"><i class='glyphicon glyphicon-plus'></i> <span>{{ trans('Ingresar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('netocafe.baristas.store')}}">{{ trans('Barista') }}</a></li>
+                    <li><a href="{{url('admin/baristas/create')}}">{{ trans('Barista') }}</a></li>
                     <li><a href="#">{{ trans('Producto') }}</a></li>
                     <li><a href="#">{{ trans('Metodo') }}</a></li>
                     <li><a href="#">{{ trans('Ingrediente') }}</a></li>

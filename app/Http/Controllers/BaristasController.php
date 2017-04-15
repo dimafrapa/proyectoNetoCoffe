@@ -36,7 +36,6 @@ class BaristasController extends Controller
 
     $barista->save();
 
-    return redirect()->route('netocafe.baristas.index');
   }
       public function destroy($id_barista){
       $barista = Barista::find($id_barista);
