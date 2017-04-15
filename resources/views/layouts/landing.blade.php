@@ -23,7 +23,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <meta name="twitter:site" content="@acachawiki" />
     <meta name="twitter:creator" content="@acacha1" />
 
-    <title>{{ trans('adminlte_lang::message.landingdescriptionpratt') }}</title>
+    <title>{{ trans('NetoCafé') }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
@@ -79,19 +79,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <h1><b><a href="https://github.com/dimafrapa/proyectoNetoCoffe">NETOCAFÉ</a></b></h1>
                 <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ trans('Iniciar') }}</a></h3>
             </div>
-            <div class="col-lg-2">
-                <h5>{{ trans('adminlte_lang::message.amazing') }}</h5>
-                <p>{{ trans('adminlte_lang::message.basedadminlte') }}</p>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow1.png') }}">
-            </div>
             <div class="col-lg-8">
                 <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
-            </div>
-            <div class="col-lg-2">
-                <br>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow2.png') }}">
-                <h5>{{ trans('adminlte_lang::message.awesomepackaged') }}</h5>
-                <p>... {{ trans('adminlte_lang::message.by') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a> {{ trans('adminlte_lang::message.at') }} <a href="http://acacha.org">acacha.org</a> {{ trans('adminlte_lang::message.readytouse') }}</p>
             </div>
         </div>
     </div> <!--/ .container -->
@@ -101,7 +90,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <div id="showcase">
     <div class="container">
         <div class="row">
-            <h1 class="centered">{{ trans('adminlte_lang::message.screenshots') }}</h1>
+            <h1 class="centered">{{ trans('Galería de Fotos') }}</h1>
             <br>
             <div class="col-lg-8 col-lg-offset-2">
                 <div id="carousel-example-generic" class="carousel slide">
@@ -109,6 +98,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="5"></li>
                     </ol>
 
                     <!-- Wrapper for slides -->
@@ -118,6 +111,18 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         </div>
                         <div class="item">
                             <img src="{{ asset('/img/item-02.png') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/img/item-03.png') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/img/item-04.png') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/img/item-05.png') }}" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/img/item-06.png') }}" alt="">
                         </div>
                     </div>
                 </div>
