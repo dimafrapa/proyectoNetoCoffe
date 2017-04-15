@@ -1,4 +1,4 @@
-@extends('template/main')
+@extends('layouts/partials/sidebar')
 
 @section('title')
   Editar datos de organizaciones {{$organizacion->nombre}}

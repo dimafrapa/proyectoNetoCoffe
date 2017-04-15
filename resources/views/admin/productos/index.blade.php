@@ -1,4 +1,4 @@
-@extends('template/main')
+@extends('layouts/partials/sidebar')
 
 @section('title')
   Lista de organizaciones

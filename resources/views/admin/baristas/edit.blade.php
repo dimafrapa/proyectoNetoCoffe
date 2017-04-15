@@ -1,4 +1,4 @@
-@extends('template/main')
+@extends('layouts/partials/sidebar')
 
 @section('title')
   Editar Barista{{$barista->id_barista}}
