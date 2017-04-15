@@ -32,14 +32,43 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">{{ trans('Encabezado') }}</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('Inicio') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('Seccion 1') }}</span></a></li>
+            
+            <!--    SECCION 1: En esta seccion se ingresan todos los datos de las tablas de la base de datos -->
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('Seccion 2 Multinivel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='glyphicon glyphicon-plus'></i> <span>{{ trans('Ingresar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('Nivel 1') }}</a></li>
-                    <li><a href="#">{{ trans('Nivel 2') }}</a></li>
+                    <li><a href="#">{{ trans('Barista') }}</a></li>
+                    <li><a href="#">{{ trans('Producto') }}</a></li>
+                    <li><a href="#">{{ trans('Metodo') }}</a></li>
+                    <li><a href="#">{{ trans('Ingrediente') }}</a></li>
+                </ul>
+            </li>
+
+            <!--    SECCION 2: En esta seccion se listan todos los datos de las tablas de la base de datos -->
+            <li class="treeview">
+                <a href="#"><i class='glyphicon glyphicon-list-alt'></i> <span>{{ trans('Listar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">{{ trans('Barista') }}</a></li>
+                    <li><a href="#">{{ trans('Producto') }}</a></li>
+                    <li><a href="#">{{ trans('Metodo') }}</a></li>
+                    <li><a href="#">{{ trans('Ingrediente') }}</a></li>
+                </ul>
+            </li>
+
+            <!--    SECCION 3: En esta seccion se pueden visualizar todos los datos en graficos de la base de datos y las historias de usuario importantes -->
+            <li class="treeview">
+                <a href="#"><i class='glyphicon glyphicon-usd'></i> <span>{{ trans('Visualizar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">{{ trans('Tabla') }}</a></li>
+                    <li><a href="#">{{ trans('Gráfico') }}</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview">
+                <a href="#"><i class='glyphicon glyphicon-random'></i> <span>{{ trans('Analítica') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">{{ trans('Relacionar Café') }}</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->
