@@ -13,7 +13,7 @@ class CreateBaristasTable extends Migration
     public function up()
     {
           Schema::create('baristas', function (Blueprint $table) {
-            $table->increments('id_empleado');
+            $table->increments('id_barista');
             $table->string('nombre_completo_empleado');
             $table->integer('cedula');
             $table->integer('telefono');
