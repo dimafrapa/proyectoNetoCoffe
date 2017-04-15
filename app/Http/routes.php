@@ -26,6 +26,7 @@
         Route::get('baristas/{id_barista}/destroy', ['uses' => 'BaristasController@destroy', 'as' => 'netocafe.baristas.destroy']);
         Route::get('baristas/{id_barista}/edit', ['uses' => 'BaristasController@edit', 'as' => 'netocafe.baristas.edit']);
         Route::post('baristas/{id_barista}/update', ['uses' => 'BaristasController@update', 'as' => 'netocafe.baristas.update']);
+        Route::post('baristas/{id_barista}/store', ['uses' => 'BaristasController@store', 'as' => 'netocafe.baristas.store']);
     });
 
     Route::auth();

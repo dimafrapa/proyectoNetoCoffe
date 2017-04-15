@@ -1,11 +1,11 @@
-@extends('layouts/partials/sidebar')
+@extends('layouts.app')
 
-@section('title')
-  Lista de Baristas
+@section('htmlheader_title')
+  Crear Barista
 @endsection
 
-@section('content')
 
+@section('main-content')
   <hr>
   <table class="table table-hover table-condensed">
     <thead>

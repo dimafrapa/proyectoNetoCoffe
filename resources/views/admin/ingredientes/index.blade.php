@@ -1,10 +1,11 @@
-@extends('layouts/partials/sidebar')
+@extends('layouts.app')
 
-@section('title')
-  Lista de Dictamenes
+@section('htmlheader_title')
+  Crear Barista
 @endsection
 
-@section('content')
+
+@section('main-content')
 
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-primary">

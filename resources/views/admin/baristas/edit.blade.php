@@ -1,10 +1,11 @@
-@extends('layouts/partials/sidebar')
+@extends('layouts.app')
 
-@section('title')
-  Editar Barista{{$barista->id_barista}}
+@section('htmlheader_title')
+  Crear Barista
 @endsection
 
-@section('content')
+
+@section('main-content')
 
   {!! Form::open(['route'=>['netocafe.baristas.update',$barista],'method'=>'POST','class'=>'form-horizontal']) !!}
 

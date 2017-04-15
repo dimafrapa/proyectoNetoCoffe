@@ -1,10 +1,11 @@
-@extends('layouts/partials/sidebar')
+@extends('layouts.app')
 
-@section('title')
-  Editar datos de organizaciones {{$organizacion->nombre}}
+@section('htmlheader_title')
+  Crear Barista
 @endsection
 
-@section('content')
+
+@section('main-content')
 
   {!! Form::open(['route'=>['solidario.orgs.update',$organizacion],'method'=>'POST','class'=>'form-horizontal']) !!}
   <div class="box-body">
