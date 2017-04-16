@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Barista;
+use App\Producto;
+use App\Ingrediente;
 
-class BaristasController extends Controller
+class ProductosController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -17,40 +18,40 @@ class BaristasController extends Controller
    */
   public function index()
   {
-      $baristas = Barista::orderBy('nombre_completo_empleado')->paginate(10);
-      return view('admin.baristas.index')->with('baristas',$baristas);
+      $productos = Producto::orderBy('nombre_completo_empleado')->paginate(10);
+      return view('admin.productos.index')->with('productos',$productos);
   }
 
   public function store(Request $request){
-    $barista = new Barista();
-    $barista->nombre_completo_empleado=$request->nombre_completo_empleado;
-    $barista->cedula=$request->cedula;
-    $barista->telefono=$request->telefono;
-    $barista->direccion=$request->direccion;
-    $barista->anos_experiencia=$request->anos_experiencia;
-    $barista->num_cursos=$request->num_cursos;
-    $barista->num_estudios_profesionales=$request->num_estudios_profesionales;
-    $barista->num_certificaciones=$request->num_certificaciones;
-    $barista->num_asistencia_competencias=$request->num_asistencia_competencias;
-    $barista->rango_barista=$request->rango_barista;
+    $producto = new Producto();
+    $producto->nombre_producto=$request->nombre_producto;
+    $producto->precio_de_venta=$request->precio_de_venta;
+    $producto->ingredientes_del_producto="nada por ahora";
 
-    $barista->save();
+    $producto->save();
 
-    $baristaAuxiliar = new Barista();
-    return view('admin.baristas.create')->with('barista',$baristaAuxiliar);
+    $productoAuxiliar = new Producto();
+    return view('admin.productos.create')->with('producto',$productoAuxiliar);
   }
 
-  public function destroy($id_barista){
-    $barista = Barista::find($id_barista);
-    $barista->delete();
+  public function destroy($id){
+    $producto = Producto::find($id);
+    $producto->delete();
 
-    return redirect()->route('netocafe.baristas.index');
+    return redirect()->route('admin.productos.index');
   }
 
   public function create()
   {
-      $barista = new Barista();
-      return view('admin.baristas.create')->with('barista',$barista);
+      $producto = new Producto();
+      $ingredientes = Ingrediente::orderBy('nombre_ingrediente');
+      return view('admin.productos.create')->with('producto',$producto)->with('ingredientes',$ingredientes);
+  }
+
+    public function show()
+  {
+      $productos = Producto::orderBy('nombre_producto')->paginate(10);
+      return view('admin.productos.index')->with('productos',$productos);
   }
 
 }

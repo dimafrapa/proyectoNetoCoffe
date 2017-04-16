@@ -34,11 +34,11 @@ class IngredientesController extends Controller
     return view('admin.ingredientes.create')->with('ingrediente',$ingredienteAuxiliar);
   }
 
-  public function destroy($id_ingrediente){
-    $ingrediente = Ingrediente::find($id_ingrediente);
+  public function destroy($id){
+    $ingrediente = Ingrediente::find($id);
     $ingrediente->delete();
 
-    return redirect()->route('netocafe.ingredientes.index');
+    return redirect()->route('admin.ingredientes.index');
   }
 
   public function create()
@@ -47,4 +47,9 @@ class IngredientesController extends Controller
       return view('admin.ingredientes.create')->with('ingrediente',$ingrediente);
   }
 
+    public function show()
+  {
+      $ingredientes = Ingrediente::orderBy('nombre_ingrediente')->paginate(10);
+      return view('admin.ingredientes.index')->with('ingredientes',$ingredientes);
+  }
 }

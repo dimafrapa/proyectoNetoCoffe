@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Barista;
+use App\Metodo;
 
-class BaristasController extends Controller
+class MetodosController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -17,40 +17,40 @@ class BaristasController extends Controller
    */
   public function index()
   {
-      $baristas = Barista::orderBy('nombre_completo_empleado')->paginate(10);
-      return view('admin.baristas.index')->with('baristas',$baristas);
+      $metodos = Metodo::orderBy('nombre_metodo')->paginate(10);
+      return view('admin.metodos.index')->with('metodos',$metodos);
   }
 
   public function store(Request $request){
-    $barista = new Barista();
-    $barista->nombre_completo_empleado=$request->nombre_completo_empleado;
-    $barista->cedula=$request->cedula;
-    $barista->telefono=$request->telefono;
-    $barista->direccion=$request->direccion;
-    $barista->anos_experiencia=$request->anos_experiencia;
-    $barista->num_cursos=$request->num_cursos;
-    $barista->num_estudios_profesionales=$request->num_estudios_profesionales;
-    $barista->num_certificaciones=$request->num_certificaciones;
-    $barista->num_asistencia_competencias=$request->num_asistencia_competencias;
-    $barista->rango_barista=$request->rango_barista;
+    $metodo = new Metodo();
+    $metodo->nombre_metodo=$request->nombre_metodo;
+    $metodo->descripcion_metodo=$request->descripcion_metodo;
+    $metodo->tiempo_aprox_metodo=$request->tiempo_aprox_metodo;
+    $metodo->categoria_metodo=$request->categoria_metodo;
 
-    $barista->save();
+    $metodo->save();
 
-    $baristaAuxiliar = new Barista();
-    return view('admin.baristas.create')->with('barista',$baristaAuxiliar);
+    $metodoAuxiliar = new Metodo();
+    return view('admin.metodos.create')->with('metodo',$metodoAuxiliar);
   }
 
-  public function destroy($id_barista){
-    $barista = Barista::find($id_barista);
-    $barista->delete();
+  public function destroy($id){
+    $metodo = metodo::find($id);
+    $metodo->delete();
 
-    return redirect()->route('netocafe.baristas.index');
+    return redirect()->route('admin.metodos.index');
   }
 
   public function create()
   {
-      $barista = new Barista();
-      return view('admin.baristas.create')->with('barista',$barista);
+      $metodo = new metodo();
+      return view('admin.metodos.create')->with('metodo',$metodo);
+  }
+
+    public function show()
+  {
+      $metodos = Metodo::orderBy('nombre_metodo')->paginate(10);
+      return view('admin.metodos.index')->with('metodos',$metodos);
   }
 
 }

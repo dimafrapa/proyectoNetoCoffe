@@ -40,17 +40,23 @@ class BaristasController extends Controller
     return view('admin.baristas.create')->with('barista',$baristaAuxiliar);
   }
 
-  public function destroy($id_barista){
-    $barista = Barista::find($id_barista);
+  public function destroy($id){
+    $barista = Barista::find($id);
     $barista->delete();
 
-    return redirect()->route('netocafe.baristas.index');
+    return redirect()->route('admin.baristas.index');
   }
 
   public function create()
   {
       $barista = new Barista();
       return view('admin.baristas.create')->with('barista',$barista);
+  }
+
+    public function show()
+  {
+      $baristas = Barista::orderBy('nombre_completo_empleado')->paginate(10);
+      return view('admin.baristas.index')->with('baristas',$baristas);
   }
 
 }

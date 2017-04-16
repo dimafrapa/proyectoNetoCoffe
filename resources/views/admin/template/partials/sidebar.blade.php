@@ -38,10 +38,12 @@
                 <a href="#"><i class='glyphicon glyphicon-plus'></i> <span>{{ trans('Ingresar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 
                 <ul class="treeview-menu">
+                    
+                    <!--    siempre recordad que cuando doy una ruta con URL les estoy diciendo que es la ruta a un metodo que debe estar en el controlador respectivo y que sus rutas YA TIENEN que estar creadas previamente -->
                     <li><a href="{{url('admin/baristas/create')}}">Baristas</a></li>
-                    <li><a href="{{url('admin/productos/create')}}">Producto</a></li>
-                    <li><a href="{{url('admin/metodos/create')}}">Metodo</a></li>
-                    <li><a href="{{url('admin/ingredientes/create')}}">Ingrediente</a></li>
+                    <li><a href="{{url('admin/productos/create')}}">Productos</a></li>
+                    <li><a href="{{url('admin/metodos/create')}}">Métodos</a></li>
+                    <li><a href="{{url('admin/ingredientes/create')}}">Ingredientes</a></li>
                 </ul>
             </li>
 

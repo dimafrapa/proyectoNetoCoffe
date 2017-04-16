@@ -31,7 +31,7 @@
 
               <div class="form-group">
                 <label for="unidad_medida">Unidad de Medida</label>
-                <input type="text" class="form-control" name="unidad_medida" value="{{$ingrediente->unidad_medida}}" required>
+                <input type="text" min="1" max="2" class="form-control" name="unidad_medida" value="{{$ingrediente->unidad_medida}}" required>
               </div>
               <div class="form-group">
                 <label for="cantidad_ingrediente">Cantidad</label>

@@ -158,3 +158,8 @@ a:after {
 	color: white
 }
 
+.animated {
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
+}

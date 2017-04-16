@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-  Crear Barista
+  Baristas
 @endsection
 
 
@@ -14,9 +14,9 @@
         <th>Cédula</th>
         <th>Telefono</th>
         <th>Dirección</th>
-        <th>Años experiencia</th>
+        <th>Experiencia</th>
         <th>Cursos</th>
-        <th>Estudios Profesionales</th>
+        <th>Estudios</th>
         <th>Certificaciones</th>
         <th>Competencias</th>
         <th>Dirección</th>
@@ -26,7 +26,6 @@
     <tbody>
       @foreach($baristas as $barista)
         <tr>
-          <td>{{$barista->id_barista}}</td>
           <td>{{$barista->nombre_completo_empleado}}</td>
           <td>{{$barista->cedula}}</td>
           <td>{{$barista->telefono}}</td>
