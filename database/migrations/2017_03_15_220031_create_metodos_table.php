@@ -16,8 +16,8 @@ class CreateMetodosTable extends Migration
             $table->increments('id_metodo');
             $table->string('nombre_metodo');
             $table->longText('descripcion_metodo');
-            $table->integer('tiempo_aprox_metodo');
-            $table->integer('categoria_metodo');
+            $table->integer('tiempo_aprox_metodo')->length(300);
+            $table->integer('categoria_metodo')->length(11);
             $table->timestamps();
         });
     }

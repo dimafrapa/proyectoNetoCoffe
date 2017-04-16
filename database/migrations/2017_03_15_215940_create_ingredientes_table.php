@@ -17,7 +17,7 @@ class CreateIngredientesTable extends Migration
             $table->string('nombre_ingrediente');
             $table->string('unidad_medida');
             $table->integer('cantidad_ingrediente');
-            $table->integer('costo_supermercado_ingrediente');
+            $table->bigInteger('costo_supermercado_ingrediente');
             $table->timestamps();
         });
     }

@@ -15,15 +15,15 @@ class CreateBaristasTable extends Migration
           Schema::create('baristas', function (Blueprint $table) {
             $table->increments('id_barista');
             $table->string('nombre_completo_empleado');
-            $table->integer('cedula');
-            $table->integer('telefono');
+            $table->bigInteger('cedula');
+            $table->bigInteger('telefono');
             $table->string('direccion');
             $table->integer('anos_experiencia');
             $table->integer('num_cursos');
             $table->integer('num_estudios_profesionales');
             $table->integer('num_certificaciones');
             $table->integer('num_asistencia_competencias');
-            $table->integer('rango_barista');
+            $table->integer('rango_barista')->length(11);
             $table->timestamps();
         });
     }

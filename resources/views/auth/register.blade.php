@@ -67,7 +67,7 @@
         </div><!-- /.form-box -->
     </div><!-- /.register-box -->
 
-    @include('layouts.partials.scripts_auth')
+    @include('admin.template.partials.scripts_auth')
 
     @include('auth.terms')
 
