@@ -60,7 +60,7 @@ GRUPO DE RUTAS PARA EL CONTROLADOR DE LOS METODOS DE PREPARACION, ESTAS RUTAS PE
         Route::get('metodos/{id}/edit', ['uses' => 'MetodosController@edit', 'as' => 'admin.metodos.edit']);
         Route::post('metodos/{id}/update', ['uses' => 'MetodosController@update', 'as' => 'admin.metodos.update']);
 
-    /*
+/*
 GRUPO DE RUTAS PARA EL CONTROLADOR DE LOS PRODUCTOS, ESTAS RUTAS PERMITEN LA NAVEGACION Y LA REALIZACION DE TODOS LOS CRUDS PARA UN PRODUCTO.
 */
         Route::resource('productos', 'ProductosController');
@@ -68,6 +68,14 @@ GRUPO DE RUTAS PARA EL CONTROLADOR DE LOS PRODUCTOS, ESTAS RUTAS PERMITEN LA NAV
         Route::get('productos/{id}/show', ['uses' => 'ProductosController@show', 'as' => 'admin.productos.show']);
         Route::get('productos/{id}/edit', ['uses' => 'ProductosController@edit', 'as' => 'admin.productos.edit']);
         Route::post('productos/{id}/update', ['uses' => 'ProductosController@update', 'as' => 'admin.productos.update']);
+
+
+/*
+GRUPO DE RUTAS PARA EL CONTROLADOR DE LA TABLA DE PERDIDADS Y GANANCIAS.
+*/
+        Route::resource('tablas', 'TablasController');
+        Route::get('tablas/{id}/show', ['uses' => 'TablasController@show', 'as' => 'admin.tablas.show']);
+
 
     });
 

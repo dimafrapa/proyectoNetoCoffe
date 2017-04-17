@@ -23,8 +23,8 @@ class MetodosController extends Controller
 
   public function store(Request $request){
     $metodo = new Metodo();
-    $metodo->nombre_metodo=$request->nombre_metodo;
-    $metodo->descripcion_metodo=$request->descripcion_metodo;
+    $metodo->nombre_metodo=strtoupper($request->nombre_metodo);
+    $metodo->descripcion_metodo=strtoupper($request->descripcion_metodo);
     $metodo->tiempo_aprox_metodo=$request->tiempo_aprox_metodo;
     $metodo->categoria_metodo=$request->categoria_metodo;
 

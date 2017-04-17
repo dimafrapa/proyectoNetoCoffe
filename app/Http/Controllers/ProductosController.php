@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Producto;
 use App\Ingrediente;
+use Illuminate\Support\Facades\DB;
 
 class ProductosController extends Controller
 {
@@ -23,15 +24,33 @@ class ProductosController extends Controller
   }
 
   public function store(Request $request){
-    $producto = new Producto();
-    $producto->nombre_producto=$request->nombre_producto;
-    $producto->precio_de_venta=$request->precio_de_venta;
-    $producto->ingredientes_del_producto="nada por ahora";
 
+    $producto = new Producto();
+    $producto->nombre_producto=strtoupper($request->nombre_producto);
+    $producto->precio_de_venta=$request->precio_de_venta;
+
+    $ingredientes = Ingrediente::all();
+    $lista_id_ingredientes = 0;
+    $contador=0;
+        foreach ($request->lista_ingredientes as $nombre) {
+          foreach ($ingredientes as $ingrediente) {
+                    
+            if($ingrediente->nombre_ingrediente == $nombre){
+
+                $lista_id_ingredientes = $ingrediente->id_ingrediente + ';' + $request->cantidades[$contador] + ';';
+            }
+          }
+          $contador = $contador+1;
+        }
+
+    $producto->ingredientes_del_producto=$lista_id_ingredientes;
+    
     $producto->save();
 
     $productoAuxiliar = new Producto();
-    return view('admin.productos.create')->with('producto',$productoAuxiliar);
+    $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
+            orderBy('nombre_ingrediente','asc')->get();
+    return view('admin.productos.create')->with('producto',$productoAuxiliar)->with('ingredientes',$ingredientes);
   }
 
   public function destroy($id){
@@ -44,7 +63,8 @@ class ProductosController extends Controller
   public function create()
   {
       $producto = new Producto();
-      $ingredientes = Ingrediente::orderBy('nombre_ingrediente');
+      $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
+            orderBy('nombre_ingrediente','asc')->get();
       return view('admin.productos.create')->with('producto',$producto)->with('ingredientes',$ingredientes);
   }
 

@@ -35,8 +35,8 @@
               </div>
 
               <div class="form-group">
-                <label for="tiempo_aprox_metodo">Tiempo Duración</label>
-                <input type="number" class="form-control" name="tiempo_aprox_metodo" value="{{$metodo->tiempo_aprox_metodo}}" required>
+                <label for="tiempo_aprox_metodo">Tiempo Duración (Minutos)</label>
+                <input type="number" class="form-control" name="tiempo_aprox_metodo" value="{{$metodo->tiempo_aprox_metodo}}" placeholder="En minutos por favor." required>
               </div>
               <div class="form-group">
                 <label for="categoria_metodo">Categoría</label>

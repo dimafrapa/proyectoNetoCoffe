@@ -23,10 +23,10 @@ class BaristasController extends Controller
 
   public function store(Request $request){
     $barista = new Barista();
-    $barista->nombre_completo_empleado=$request->nombre_completo_empleado;
+    $barista->nombre_completo_empleado=strtoupper($request->nombre_completo_empleado);
     $barista->cedula=$request->cedula;
     $barista->telefono=$request->telefono;
-    $barista->direccion=$request->direccion;
+    $barista->direccion=strtoupper($request->direccion);
     $barista->anos_experiencia=$request->anos_experiencia;
     $barista->num_cursos=$request->num_cursos;
     $barista->num_estudios_profesionales=$request->num_estudios_profesionales;

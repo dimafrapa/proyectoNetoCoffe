@@ -23,7 +23,7 @@ class IngredientesController extends Controller
 
   public function store(Request $request){
     $ingrediente = new Ingrediente();
-    $ingrediente->nombre_ingrediente=$request->nombre_ingrediente;
+    $ingrediente->nombre_ingrediente=strtoupper($request->nombre_ingrediente);
     $ingrediente->unidad_medida=$request->unidad_medida;
     $ingrediente->cantidad_ingrediente=$request->cantidad_ingrediente;
     $ingrediente->costo_supermercado_ingrediente=$request->costo_supermercado_ingrediente;

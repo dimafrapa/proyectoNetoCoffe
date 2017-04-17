@@ -62,8 +62,8 @@
             <li class="treeview">
                 <a href="#"><i class='glyphicon glyphicon-usd'></i> <span>{{ trans('Visualizar') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('admin/tabla/index')}}">{{ trans('Tabla') }}</a></li>
-                    <li><a href="{{url('admin/grafico/index')}}">{{ trans('Gráfico') }}</a></li>
+                    <li><a href="{{url('admin/tablas/index')}}">{{ trans('Tabla') }}</a></li>
+                    <li><a href="{{url('admin/graficos/index')}}">{{ trans('Gráfico') }}</a></li>
                 </ul>
             </li>
 

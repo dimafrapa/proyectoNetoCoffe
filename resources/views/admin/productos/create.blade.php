@@ -34,46 +34,39 @@
                 <input type="number" class="form-control" name="precio_de_venta" value="{{$producto->precio_de_venta}}" required>
               </div>
 
-              <div class="rowIngredientes col-list">
-
-                  <div class="col-md-5 t1">
-                      <div class="col-head text-center">
-                          <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                          <h2>Ingredientes</h2>
+              <div class="container">
+                  <h3>Ingrediente</h3>
+                  <div class="row">
+                      <div class="form-group form-group-multiple-selects col-xs-11 col-sm-8 col-md-4">
+                      <div class="input-group input-group-multiple-select col-xs-12">
+                          <select class="form-control" type="text" name="lista_ingredientes[]" style="width: 100%;">
+                            @foreach($ingredientes as $ingrediente)
+                              <option>{{$ingrediente->nombre_ingrediente}}</option>
+                            @endforeach
+                          </select>
+                        <span class="input-group-addon input-group-addon-remove">
+                          <span class="glyphicon glyphicon-trash"></span>
+                        </span>
                       </div>
-
-                      <ul class="list-unstyle">
-
-                          @foreach($ingredientes as $ingrediente)
-                              <?php
-                                  if($ingrediente->cantidad_ingrediente > 0){
-                                      for ($i = 0;$i< $ingrediente->cantidad_ingrediente; $i++){
-                                          $cantidades[$i] = $i+1;
-                                      }
-                                  }else{
-                                      $cantidades[0] = 0;
-                                  }
-                              ?> 
-                              <label><input type="checkbox" name="ingredientes[]" value="{{$ingrediente->id_ingrediente}}" onclick="sel<?php echo $ingrediente->id_ingrediente;?>.disabled=!this.checked" >
-                                  <label>{{$ingrediente->nombre_ingrediente}}</label>
-
-                                  <select  id="sel<?php echo $ingrediente->id;?>" type="number" name="cantidad_ingrediente[]" disabled="disabled">
-                                      <option value="0">0</option>
-                                      @foreach($cantidades as $num)
-                                          <option value="{{$num}}">{{$num}}</option>
-                                      @endforeach 
-                                  </select>
-                              </label>
-                              <br />
-                              <?php
-                                  unset($cantidades);
-                                  $cantidades = array(); 
-                              ?>
-                          @endforeach
-                      </ul>
+                    </div>
                   </div>
+              </div>
+
+              <div class="container">
+                <h3>Cantidad</h3>
+                  <div class="row">
+                      <div class="form-group form-group-options col-xs-11 col-sm-8 col-md-4">
+                      <div class="input-group input-group-option col-xs-12">
+                        <input type="number" min="1" max="100" name="cantidades[]" class="form-control" placeholder="Cantidad">
+                        <span class="input-group-addon input-group-addon-remove">
+                          <span class="glyphicon glyphicon-trash"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
                   
-            <div class="box-footer">
+            <div class="box-footerProductos">
               <button type="submit" class="btn btn-primary">Agregar</button>
             </div>
 
@@ -86,12 +79,4 @@
   </div>
 
   <hr>
-
-  <script>
-        $(function(){
-        $('.normal').autosize();
-        $('.animated').autosize({append: "\n"});
-      });
-    </script>
-
 @endsection
