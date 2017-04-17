@@ -19,7 +19,11 @@ class TablasController extends Controller
   {
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
-      return view('admin.tablas.index')->with('productos',$productos);
+
+      $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
+            orderBy('nombre_ingrediente','asc')->get();
+
+      return view('admin.tablas.index')->with('productos',$productos)->with('ingredientes',$ingredientes);
   }
 
 }

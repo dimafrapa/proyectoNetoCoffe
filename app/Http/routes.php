@@ -18,9 +18,7 @@
         }
         else
             return view('auth.login');
-
     });
-
 
     Route::get('error', function(){
         abort(500);
@@ -74,7 +72,10 @@ GRUPO DE RUTAS PARA EL CONTROLADOR DE LOS PRODUCTOS, ESTAS RUTAS PERMITEN LA NAV
 GRUPO DE RUTAS PARA EL CONTROLADOR DE LA TABLA DE PERDIDADS Y GANANCIAS.
 */
         Route::resource('tablas', 'TablasController');
+        Route::get('tablas/{id}/destroy', ['uses' => 'TablasController@destroy', 'as' => 'admin.tablas.destroy']);
         Route::get('tablas/{id}/show', ['uses' => 'TablasController@show', 'as' => 'admin.tablas.show']);
+        Route::get('tablas/{id}/edit', ['uses' => 'TablasController@edit', 'as' => 'admin.tablas.edit']);
+        Route::post('tablas/{id}/update', ['uses' => 'TablasController@update', 'as' => 'admin.tablas.update']);
 
 
     });

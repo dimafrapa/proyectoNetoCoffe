@@ -20,7 +20,10 @@ class ProductosController extends Controller
   public function index()
   {
       $productos = Producto::orderBy('nombre_completo_empleado')->paginate(10);
-      return view('admin.productos.index')->with('productos',$productos);
+      $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
+            orderBy('nombre_ingrediente','asc')->get();
+            
+      return view('admin.productos.index')->with('productos',$productos)->with('ingredientes',$ingredientes);
   }
 
   public function store(Request $request){
@@ -37,7 +40,7 @@ class ProductosController extends Controller
                     
             if($ingrediente->nombre_ingrediente == $nombre){
 
-                $lista_id_ingredientes = $lista_id_ingredientes + $ingrediente->id_ingrediente + ';' + $request->cantidades[$contador] + ';';
+                $lista_id_ingredientes = $lista_id_ingredientes . $ingrediente->id_ingrediente . ';' . $request->cantidades[$contador] . ';';
             }
           }
           $contador = $contador+1;
