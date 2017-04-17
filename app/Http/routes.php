@@ -17,7 +17,7 @@
             return view('home');
         }
         else
-            return view('auth.login');
+            return view('welcome');
     });
 
     Route::get('error', function(){

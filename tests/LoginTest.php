@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 /**
  * Class AcachaAdminLTELaravelTest.
  */
-class AcachaAdminLTELaravelTest extends TestCase
+class LoginTest extends TestCase
 {
     use DatabaseMigrations;
 

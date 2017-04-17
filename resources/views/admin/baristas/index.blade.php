@@ -19,7 +19,6 @@
         <th>Estudios</th>
         <th>Certificaciones</th>
         <th>Competencias</th>
-        <th>Dirección</th>
         <th>Rango</th>
       </tr>
     </thead>
@@ -36,8 +35,6 @@
           <td>{{$barista->num_certificaciones}}</td>
           <td>{{$barista->num_asistencia_competencias}}</td>
           <td>{{$barista->rango_barista}}</td>
-          <td><a href=" {{ route('netocafe.baristas.edit',$barista->id_barista) }} " class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-          <td><a href=" {{ route('netocafe.baristas.destroy',$barista->id_barista) }} " class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
         </tr>
       @endforeach
     </tbody>
