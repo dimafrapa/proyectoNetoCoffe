@@ -19,8 +19,6 @@ class TablasController extends Controller
   {
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
-
-            dd($productos);
       return view('admin.tablas.index')->with('productos',$productos);
   }
 

@@ -30,14 +30,14 @@ class ProductosController extends Controller
     $producto->precio_de_venta=$request->precio_de_venta;
 
     $ingredientes = Ingrediente::all();
-    $lista_id_ingredientes = 0;
+    $lista_id_ingredientes = '';
     $contador=0;
         foreach ($request->lista_ingredientes as $nombre) {
           foreach ($ingredientes as $ingrediente) {
                     
             if($ingrediente->nombre_ingrediente == $nombre){
 
-                $lista_id_ingredientes = $ingrediente->id_ingrediente + ';' + $request->cantidades[$contador] + ';';
+                $lista_id_ingredientes = $lista_id_ingredientes + $ingrediente->id_ingrediente + ';' + $request->cantidades[$contador] + ';';
             }
           }
           $contador = $contador+1;
