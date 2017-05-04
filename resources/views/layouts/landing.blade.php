@@ -79,7 +79,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <h1><b><a href="https://github.com/dimafrapa/proyectoNetoCoffe">NETOCAFÉ</a></b></h1>
                 <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ trans('Iniciar') }}</a></h3>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 col-lg-offset-2">
                 <img class="img-responsive" src="{{ asset('/img/dashboard.png') }}" alt="">
             </div>
         </div>
@@ -138,7 +138,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <div id="c">
     <div class="container">
         <p>
-            <a href="https://github.com/acacha/adminlte-laravel"></a><b>NetoCafé</b></a>. {{ trans('K 7 #14B03') }}.<br/>
+            <a></a><b>Descripción:</b></a>. {{ trans('El mejor lugar para vivir momentos especiales, en compañía de familia y amigos.') }}<br/>
+            <a></a><b>Dulcinea</b></a>. {{ trans('Calle 7 - Carrera 7 #7-01 Esquina Filandia') }}.<br/>
+            <a></a><b>E-Mail:</b></a>. {{ trans('dulcineacafebar77@gmail.com') }}.<br/>
+            <a></a><b>Teléfono:</b></a>. {{ trans('318 2200693') }}.<br/>
+            <a></a><b>Horario:</b></a>. {{ trans('8:00 - 22:00') }}.<br/>
+            <a></a><b>Bar · Cafetería</b></a><br/>
+
         </p>
 
     </div>
