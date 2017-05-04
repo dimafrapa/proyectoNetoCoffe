@@ -35,6 +35,11 @@
           <td>{{$barista->num_certificaciones}}</td>
           <td>{{$barista->num_asistencia_competencias}}</td>
           <td>{{$barista->rango_barista}}</td>
+          <td>
+              <a href="{{ route('admin.baristas.destroy',$barista->id) }}" class="btn btn-danger" onclick="return confirm('¿Seguro desea eliminarlo?')">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </a>
+          </td>
         </tr>
       @endforeach
     </tbody>

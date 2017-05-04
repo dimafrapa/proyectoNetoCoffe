@@ -33,7 +33,7 @@
                 $posDeLaCantidad = strpos($newstring, ';', 0);
                 $cantidad = substr($newstring, 0, $posDeLaCantidad);
                 
-                if($ingrediente->id_ingrediente == $ingrediente_id){
+                if($ingrediente->id == $ingrediente_id){
                   $newstring = str_replace($ingrediente_id . ';', '', $newstring);
                   $newstring = str_replace($cantidad . ';', '', $newstring);
 
@@ -48,7 +48,13 @@
             <td>{{$producto->nombre_producto}}</td>
             <td>{{$producto->precio_de_venta}}</td>
             <td>{{$costoIngrediente}}</td>
-            <td>{{$perdida_ganancia}}</td>
+            @if($perdida_ganancia < 0)
+              <td><a class="btn btn-danger loading disabled">{{$perdida_ganancia}}</a></td>
+            @elseif ($perdida_ganancia >= 0)
+              <td><a class="btn btn-success loading disabled">{{$perdida_ganancia}}</a></td>
+            @elseif($perdida_ganancia = 0)
+              <td><a class="btn btn-default loading disabled">{{$perdida_ganancia}}</a></td>
+            @endif
           </tr>
       @endforeach
     </tbody>

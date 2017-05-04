@@ -23,6 +23,11 @@
           <td>{{$metodo->descripcion_metodo}}</td>
           <td>{{$metodo->tiempo_aprox_metodo}}</td>
           <td>{{$metodo->categoria_metodo}}</td>
+          <td>
+              <a href="{{ route('admin.metodo.destroy',$metodo->id) }}" class="btn btn-danger" onclick="return confirm('¿Seguro desea eliminarlo?')">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </a>
+          </td>
         </tr>
       @endforeach
     </tbody>

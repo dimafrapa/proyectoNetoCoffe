@@ -40,10 +40,15 @@ class BaristasController extends Controller
     return view('admin.baristas.create')->with('barista',$baristaAuxiliar);
   }
 
+  /**
+ * Remove the specified resource from storage.
+ *
+ * @param  int  $id
+ * @return \Illuminate\Http\Response
+ */
   public function destroy($id){
     $barista = Barista::find($id);
     $barista->delete();
-
     return redirect()->route('admin.baristas.index');
   }
 
@@ -58,5 +63,7 @@ class BaristasController extends Controller
       $baristas = Barista::orderBy('nombre_completo_empleado')->paginate(10);
       return view('admin.baristas.index')->with('baristas',$baristas);
   }
+
+
 
 }

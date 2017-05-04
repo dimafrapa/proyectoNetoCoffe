@@ -23,6 +23,11 @@
           <td>{{$ingrediente->unidad_medida}}</td>
           <td>{{$ingrediente->cantidad_ingrediente}}</td>
           <td>{{$ingrediente->costo_supermercado_ingrediente}}</td>
+          <td>
+              <a href="{{ route('admin.ingredientes.destroy',$ingrediente->id) }}" class="btn btn-danger" onclick="return confirm('¿Seguro desea eliminarlo?')">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </a>
+          </td>
         </tr>
       @endforeach
     </tbody>

@@ -34,6 +34,12 @@ class IngredientesController extends Controller
     return view('admin.ingredientes.create')->with('ingrediente',$ingredienteAuxiliar);
   }
 
+  /**
+ * Remove the specified resource from storage.
+ *
+ * @param  int  $id
+ * @return \Illuminate\Http\Response
+ */
   public function destroy($id){
     $ingrediente = Ingrediente::find($id);
     $ingrediente->delete();

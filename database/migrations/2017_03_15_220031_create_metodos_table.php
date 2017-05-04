@@ -13,7 +13,7 @@ class CreateMetodosTable extends Migration
     public function up()
     {
           Schema::create('metodos', function (Blueprint $table) {
-            $table->increments('id_metodo');
+            $table->increments('id');
             $table->string('nombre_metodo');
             $table->longText('descripcion_metodo');
             $table->integer('tiempo_aprox_metodo')->length(300);
