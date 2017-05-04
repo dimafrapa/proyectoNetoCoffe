@@ -8,7 +8,7 @@
 
             <div class="modal-body">
                 <p>Al registrarme acepto...</p>
-                <p>Esto inplica esto ...</p>
+                <p>Esto implica esto ...</p>
             </div>
 
             <div class="modal-footer">

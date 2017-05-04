@@ -9,12 +9,12 @@
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/home') }}"><b>Neto</b>Coffe</a>
+            <a href="{{ url('/home') }}"><b>Neto</b>Café</a>
         </div>
 
         @if (count($errors) > 0)
             <div class="alert alert-danger">
-                <strong>Whoops!</strong> {{ trans('adminlte_lang::message.someproblems') }}<br><br>
+                <strong>Whoops!</strong> {{ trans('Tenemos algunos problemas con los datos que ingreso!') }}<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -28,7 +28,7 @@
             <form action="{{ url('/register') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="{{ trans('nombre completo') }}" name="name" value="{{ old('name') }}"/>
+                    <input type="text" class="form-control" placeholder="{{ trans('Nombre completo') }}" name="name" value="{{ old('name') }}"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -36,11 +36,11 @@
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="{{ trans('password') }}" name="password"/>
+                    <input type="password" class="form-control" placeholder="{{ trans('Password') }}" name="password"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="{{ trans('repetir password') }}" name="password_confirmation"/>
+                    <input type="password" class="form-control" placeholder="{{ trans('Repetir password') }}" name="password_confirmation"/>
                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                 </div>
                 <div class="row">
@@ -53,13 +53,13 @@
                             </div>
                         </label>
                     </div><!-- /.col -->
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('Terminos') }}</button>
+                    <div class="col-xs-8" width="90%" style=" width: 90%;">
+                        <div class="form-group" >
+                            <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('Terminos y Condiciones') }}</button>
                         </div>
                     </div><!-- /.col -->
-                    <div class="col-xs-4 col-xs-push-1">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('Registrarse') }}</button>
+                    <div class="col-xs-4" width="100%" style=" width: 100%;">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('Registrarme') }}</button>
                     </div><!-- /.col -->
                 </div>
             </form>

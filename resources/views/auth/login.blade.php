@@ -13,7 +13,7 @@
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> {{ trans('adminlte_lang::message.someproblems') }}<br><br>
+            <strong>Whoops!</strong> {{ trans('Tenemos algunos problemas con su usuario!') }}<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -35,14 +35,14 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-xs-8" width="90%" style=" width: 90%;">
                 <div class="checkbox icheck">
                     <label>
                         <input type="checkbox" name="remember"> {{ trans('Recordarme') }}
                     </label>
                 </div>
             </div><!-- /.col -->
-            <div class="col-xs-4">
+            <div class="col-xs-4" width="100%" style=" width: 100%;">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('Iniciar') }}</button>
             </div><!-- /.col -->
         </div>
