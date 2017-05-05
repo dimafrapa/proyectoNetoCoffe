@@ -57,7 +57,7 @@
                   <div class="row">
                       <div class="form-group form-group-options col-xs-11 col-sm-8 col-md-4">
                       <div class="input-group input-group-option col-xs-12">
-                        <input type="number" min="1" max="100" name="cantidades[]" class="form-control" placeholder="Cantidad">
+                        <input type="number" min="1" max="1000" name="cantidades[]" class="form-control" placeholder="Cantidad en gramos o mililitros.">
                         <span class="input-group-addon input-group-addon-remove">
                           <span class="glyphicon glyphicon-trash"></span>
                         </span>

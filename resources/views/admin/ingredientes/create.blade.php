@@ -31,11 +31,15 @@
 
               <div class="form-group">
                 <label for="unidad_medida">Unidad de Medida</label>
-                <input type="text" min="1" max="2" class="form-control" name="unidad_medida" value="{{$ingrediente->unidad_medida}}" required>
+                <select class="form-control" name="unidad_medida" value="{{$ingrediente->unidad_medida}}" required>
+                  <option>Gramos (gr)</option>
+                  <option>Mililitros (ml)</option>
+                </select>
               </div>
+              
               <div class="form-group">
                 <label for="cantidad_ingrediente">Cantidad</label>
-                <input type="number" class="form-control" name="cantidad_ingrediente" value="{{$ingrediente->cantidad_ingrediente}}" required>
+                <input type="number" class="form-control" name="cantidad_ingrediente" placeholder="Cantidad en gramos o mililitros." value="{{$ingrediente->cantidad_ingrediente}}" required>
               </div>
               <div class="form-group">
                 <label for="costo_supermercado_ingrediente">Costo en el Supermercado</label>
