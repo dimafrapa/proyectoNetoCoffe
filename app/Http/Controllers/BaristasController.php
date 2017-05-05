@@ -45,7 +45,7 @@ class BaristasController extends Controller
     $rangoBarista = 0;
 
     $baristaAuxiliar = new Barista();
-    return view('admin.baristas.create')->with('barista',$barista)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
+    return view('admin.baristas.create')->with('barista',$baristaAuxiliar)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
   }
 
   /**
@@ -83,10 +83,7 @@ class BaristasController extends Controller
 */
   public function calcularRango(Request $request){
     $barista = new Barista();
-    $barista->nombre_completo_empleado=strtoupper($request->nombre_completo_empleado);
-    $barista->cedula=$request->cedula;
-    $barista->telefono=$request->telefono;
-    $barista->direccion=strtoupper($request->direccion);
+
     $barista->anos_experiencia=$request->anos_experiencia;
     $barista->num_cursos=$request->num_cursos;
     $barista->num_estudios_profesionales=$request->num_estudios_profesionales;
@@ -99,7 +96,7 @@ class BaristasController extends Controller
     $porcentajeCursos = ($request->num_cursos*100)/20;
     $porcentajeEstudiosProfesionales = ($request->num_estudios_profesionales*100)/4;
     $porcentajeCertificaciones = ($request->num_certificaciones*100)/10;
-    $porcentajeCompetencias = ($request->num_asistencia_competencias*100)/10;
+    $porcentajeCompetencias = ($request->num_asistencia_competencias*100)/20;
 
     $porcentajeRangoBarista = ($porcentajeExperiencia*0.5) + ($porcentajeCursos*0.1) + ($porcentajeEstudiosProfesionales*0.05) + ($porcentajeCertificaciones*0.25) + ($porcentajeCompetencias*0.1);
     $rangoBarista = intval(($porcentajeRangoBarista*10)/100);
