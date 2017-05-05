@@ -39,6 +39,7 @@ GRUPO DE RUTAS PARA EL CONTROLADOR DE LOS BARISTAS, ESTAS RUTAS PERMITEN LA NAVE
         Route::get('baristas/{id}/show', ['uses' => 'BaristasController@show', 'as' => 'admin.baristas.show']);
         Route::get('baristas/{id}/edit', ['uses' => 'BaristasController@edit', 'as' => 'admin.baristas.edit']);
         Route::post('baristas/{id}/update', ['uses' => 'BaristasController@update', 'as' => 'admin.baristas.update']);
+        Route::post('baristas/{id}/calcularRango', ['uses' => 'BaristasController@update', 'as' => 'admin.baristas.calcularRango']);
 
 /*
 GRUPO DE RUTAS PARA EL CONTROLADOR DE LOS INGREDIENTES, ESTAS RUTAS PERMITEN LA NAVEGACION Y LA REALIZACION DE TODOS LOS CRUDS PARA UN INGREDIENTE.

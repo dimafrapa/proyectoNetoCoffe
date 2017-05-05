@@ -36,8 +36,16 @@ class BaristasController extends Controller
 
     $barista->save();
 
+    $porcentajeExperiencia = 0;
+    $porcentajeCursos = 0;
+    $porcentajeEstudiosProfesionales = 0;
+    $porcentajeCertificaciones = 0;
+    $porcentajeCompetencias = 0;
+
+    $rangoBarista = 0;
+
     $baristaAuxiliar = new Barista();
-    return view('admin.baristas.create')->with('barista',$baristaAuxiliar);
+    return view('admin.baristas.create')->with('barista',$barista)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
   }
 
   /**
@@ -55,7 +63,14 @@ class BaristasController extends Controller
   public function create()
   {
       $barista = new Barista();
-      return view('admin.baristas.create')->with('barista',$barista);
+      $porcentajeExperiencia = 0;
+      $porcentajeCursos = 0;
+      $porcentajeEstudiosProfesionales = 0;
+      $porcentajeCertificaciones = 0;
+      $porcentajeCompetencias = 0;
+
+      $rangoBarista = 0;
+      return view('admin.baristas.create')->with('barista',$barista)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
   }
 
     public function show()
@@ -64,6 +79,32 @@ class BaristasController extends Controller
       return view('admin.baristas.index')->with('baristas',$baristas);
   }
 
+/* Metodo para calcular el rango del barista
+*/
+  public function calcularRango(Request $request){
+    $barista = new Barista();
+    $barista->nombre_completo_empleado=strtoupper($request->nombre_completo_empleado);
+    $barista->cedula=$request->cedula;
+    $barista->telefono=$request->telefono;
+    $barista->direccion=strtoupper($request->direccion);
+    $barista->anos_experiencia=$request->anos_experiencia;
+    $barista->num_cursos=$request->num_cursos;
+    $barista->num_estudios_profesionales=$request->num_estudios_profesionales;
+    $barista->num_certificaciones=$request->num_certificaciones;
+    $barista->num_asistencia_competencias=$request->num_asistencia_competencias;
+    $barista->rango_barista=$request->rango_barista;
 
+
+    $porcentajeExperiencia = ($request->anos_experiencia*100)/10;
+    $porcentajeCursos = ($request->num_cursos*100)/20;
+    $porcentajeEstudiosProfesionales = ($request->num_estudios_profesionales*100)/4;
+    $porcentajeCertificaciones = ($request->num_certificaciones*100)/10;
+    $porcentajeCompetencias = ($request->num_asistencia_competencias*100)/10;
+
+    $porcentajeRangoBarista = ($porcentajeExperiencia*0.5) + ($porcentajeCursos*0.1) + ($porcentajeEstudiosProfesionales*0.05) + ($porcentajeCertificaciones*0.25) + ($porcentajeCompetencias*0.1);
+    $rangoBarista = intval(($porcentajeRangoBarista*10)/100);
+
+    return view('admin.baristas.create')->with('barista',$barista)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
+  }
 
 }

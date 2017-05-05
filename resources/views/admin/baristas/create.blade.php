@@ -52,7 +52,7 @@
                 <input type="number" min="1" max="100" class="form-control" name="num_cursos" value="{{$barista->num_cursos}}" required>
               </div>
               <div class="form-group">
-                <label for="num_estudios_profesionales">Numero Estudios Profesionales</label>
+                <label for="num_estudios_profesionales">Número Estudios Profesionales</label>
                 <input type="number" min="1" max="20" class="form-control" name="num_estudios_profesionales" value="{{$barista->num_estudios_profesionales}}" required>
               </div>
               <div class="form-group">
@@ -65,9 +65,91 @@
               </div>
               <div class="form-group">
                 <label for="rango_barista">Rango Barista</label>
+                <li><a href="{{url('admin/baristas/calcularRango')}}">Calcular</a></li>
                 <input type="number" min="1" max="10" class="form-control" name="rango_barista" value="{{$barista->rango_barista}}" placeholder="Solo un número del 1-10 por favor." required>
               </div>
-                
+
+              <!-- AQUI SE AGREGA EL RATING CARD PARA EVALUAR EL RANGO DEL BARISTA-->
+              <div class="container">
+                  <div class="row">
+                      <div class="col-xs-12 col-md-6">
+                          <div class="well well-sm">
+                              <div class="row">
+                                  <div class="col-xs-12 col-md-6 text-center">
+                                      <h1 class="rating-num">{{$rangoBarista}}</h1>
+                                  </div>
+                                  <div class="col-xs-12 col-md-6" width="100%" style=" width: 100%;">
+                                      <div class="row rating-desc">
+                                          <div class="col-xs-3 col-md-3 text-right">
+                                              <span class="glyphicon glyphicon-star"></span>Experiencia
+                                          </div>
+                                          <div class="col-xs-8 col-md-9">
+                                              <div class="progress progress-striped">
+                                                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width: {{$porcentajeExperiencia}}">
+                                                      <span class="sr-only">{{$porcentajeExperiencia}}</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- end 5 -->
+                                          <div class="col-xs-3 col-md-3 text-right">
+                                              <span class="glyphicon glyphicon-star"></span>Cursos
+                                          </div>
+                                          <div class="col-xs-8 col-md-9">
+                                              <div class="progress">
+                                                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width: {{$porcentajeCursos}}">
+                                                      <span class="sr-only">{{$porcentajeCursos}}</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- end 4 -->
+                                          <div class="col-xs-3 col-md-3 text-right">
+                                              <span class="glyphicon glyphicon-star"></span>Estudios
+                                          </div>
+                                          <div class="col-xs-8 col-md-9">
+                                              <div class="progress">
+                                                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width: {{$porcentajeEstudiosProfesionales}}">
+                                                      <span class="sr-only">{{$porcentajeEstudiosProfesionales}}</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- end 3 -->
+                                          <div class="col-xs-3 col-md-3 text-right">
+                                              <span class="glyphicon glyphicon-star"></span>Certificaciones
+                                          </div>
+                                          <div class="col-xs-8 col-md-9">
+                                              <div class="progress">
+                                                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width: {{$porcentajeCertificaciones}}">
+                                                      <span class="sr-only">{{$porcentajeCertificaciones}}</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- end 2 -->
+                                          <div class="col-xs-3 col-md-3 text-right">
+                                              <span class="glyphicon glyphicon-star"></span>Competencias
+                                          </div>
+                                          <div class="col-xs-8 col-md-9">
+                                              <div class="progress">
+                                                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width: {{$porcentajeCompetencias}}">
+                                                      <span class="sr-only">{{$porcentajeCompetencias}}</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- end 1 -->
+                                      </div>
+                                      <!-- end row -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!--/////////////////////////////////////// FIN RANGO DEL BARISTA /////////////////////////////////////// -->
             <div class="box-footer">
               <button type="submit" class="btn btn-primary">Agregar</button>
             </div>
