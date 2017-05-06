@@ -11,7 +11,7 @@ use App\Ingrediente;
 class IngredientesController extends Controller
 {
   /**
-   * Display a listing of the resource.
+   * Este metodo le manda todos los ingredientes a la vista que muestra la lista de ingredientes creados.
    *
    * @return \Illuminate\Http\Response
    */
@@ -21,6 +21,11 @@ class IngredientesController extends Controller
       return view('admin.ingredientes.index')->with('ingredientes',$ingredientes);
   }
 
+/**
+*
+* Este metodo sirve para crear y almacenar en la base de datos todos los ingredintes cuyos
+* datos vienen empaquetados en la variable request.
+**/
   public function store(Request $request){
     $ingrediente = new Ingrediente();
     $ingrediente->nombre_ingrediente=strtoupper($request->nombre_ingrediente);
@@ -47,12 +52,20 @@ class IngredientesController extends Controller
     return redirect()->route('admin.ingredientes.index');
   }
 
+/**
+* Este metodo es usado solo para redireccionamiento. Cuando se desee mostrar la pagina para crear un ingrediente el controlador ejecuta
+* este metodo y retorna la vista correspodiente.
+**/
   public function create()
   {
       $ingrediente = new Ingrediente();
       return view('admin.ingredientes.create')->with('ingrediente',$ingrediente);
   }
 
+/**
+* Este metodo es usado solo para redireccionamiento. Cuando se desee mostrar la pagina el controlador ejecuta
+* este metodo y retorna la vista correspodiente.
+**/
     public function show()
   {
       $ingredientes = Ingrediente::orderBy('nombre_ingrediente')->paginate(10);

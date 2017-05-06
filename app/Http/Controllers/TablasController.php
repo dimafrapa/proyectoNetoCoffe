@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\DB;
 class TablasController extends Controller
 {
 
+/**
+*
+* Este metodo se usa para redireccionar la vista de las tablas (html5) donde se lleva a cabo
+* el calculo del costo de preparacion y de los ingredientes de cada producto, por eso se le enviar todos
+* los arreglos.
+**/
   public function store(Request $request){
 
       $productos =DB::table('productos')->select('productos.*')->
@@ -29,7 +35,10 @@ class TablasController extends Controller
       return view('admin.tablas.index')->with('productos',$productos)->with('ingredientes',$ingredientes)->with('ingredientes',$ingredientes)->with('costo_nivel_barista',$costo_nivel_barista)->with('costo_extra_metodo_tradicional',$costo_extra_metodo_tradicional);
   }
 
-
+/**
+* Este metodo es usado solo para redireccionamiento. Cuando se desee mostrar la pagina el controlador ejecuta
+* este metodo y retorna la vista correspodiente.
+**/
   public function show()
   {
       $productos =DB::table('productos')->select('productos.*')->

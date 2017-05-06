@@ -73,13 +73,18 @@ class BaristasController extends Controller
       return view('admin.baristas.create')->with('barista',$barista)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
   }
 
+/**
+* Este metodo es usado solo para redireccionamiento. Cuando se desee mostrar la pagina el controlador ejecuta
+* este metodo y retorna la vista correspodiente.
+**/
     public function show()
   {
       $baristas = Barista::orderBy('nombre_completo_empleado')->paginate(10);
       return view('admin.baristas.index')->with('baristas',$baristas);
   }
 
-/* Metodo para calcular el rango del barista
+/* Metodo para calcular el rango del barista teniendo en cuenta los porcentajes asignados a cada item
+* de los datos de la experiencia laboral del empleado.
 */
   public function calcularRango(Request $request){
     $barista = new Barista();

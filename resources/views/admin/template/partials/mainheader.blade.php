@@ -37,13 +37,13 @@
                                 <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
                                 <p>
                                     {{ Auth::user()->name }}
-                                    <small>{{ trans('Bienvenido.') }}</small>
+                                    <big>{{ trans('Bienvenido.') }}</big>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">{{ trans('Perfil') }}</a>
+                                    <a href="#" class="btn btn-default btn-flat">{{ trans('Pérfil') }}</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">{{ trans('Salir') }}</a>
