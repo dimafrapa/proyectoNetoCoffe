@@ -33,7 +33,14 @@ class AnaliticasController extends Controller
     if($request->nivel_barista ==  'Nivel 1'){
 
       $costo_nivel_barista = 200;
-      $costo_extra_metodo_tradicional = 250;
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 150;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 350;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();

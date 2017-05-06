@@ -93,9 +93,10 @@
                     <div class="col-md-4">Metodos
                       <select class="form-control" type="text" name="nombre_metodo" style="width: 100%;">
                           <optgroup label="MÉTODOS">
-                            @foreach($metodos as $metodo)
-                                <option>{{$metodo->nombre_metodo}}</option>
-                            @endforeach
+                              <option>Artesanal</option>
+                              <option>Prensa Francesa</option>
+                              <option>Chemex</option>
+                              <option>Sifon</option>
                           </optgroup>
                       </select>
                     </div>
