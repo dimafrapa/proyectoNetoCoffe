@@ -40,6 +40,7 @@
                       <div class="form-group form-group-multiple-selects col-xs-11 col-sm-8 col-md-4">
                       <div class="input-group input-group-multiple-select col-xs-12">
                           <select class="form-control" type="text" name="lista_ingredientes[]" style="width: 100%;">
+                            <option>Seleccionar Ingrediente</option>
                             @foreach($ingredientes as $ingrediente)
                               <option>{{$ingrediente->nombre_ingrediente}}</option>
                             @endforeach

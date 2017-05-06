@@ -44,34 +44,39 @@
           <?php
 
             $costoIngrediente = 0;
+            $costoTotalIngredientes = 0;
             $perdida_ganancia = 0;
             $costoPreparacion = 0;
             $newstring = $producto->ingredientes_del_producto;
+
               foreach ($ingredientes as $ingrediente) {
 
                 $posDelId = strpos($newstring, ';', 0);
                 $ingrediente_id = substr($newstring, 0, $posDelId);
                 
-                $posDeLaCantidad = strpos($newstring, ';', 0);
-                $cantidad = substr($newstring, 0, $posDeLaCantidad);
-                
-                if($ingrediente->id == $ingrediente_id){
-                  $newstring = str_replace($ingrediente_id . ';', '', $newstring);
-                  $newstring = str_replace($cantidad . ';', '', $newstring);
+                $posDeLaCantidad = strpos($newstring, ';', ($posDelId + 1));
+                $cantidad = substr($newstring, $posDelId + 1, ($posDeLaCantidad - $posDelId -1));
 
-                  $costoIngrediente = $costoIngrediente + (($ingrediente->costo_supermercado_ingrediente*$cantidad)/$ingrediente->cantidad_ingrediente);
+                if($ingrediente->id == $ingrediente_id){
+
+                  $stringAEliminar = substr($newstring,0, $posDeLaCantidad+1);
+
+                  $newstring = str_replace($stringAEliminar, ' ', $newstring);
+
+                  $costoIngrediente = (($ingrediente->costo_supermercado_ingrediente*$cantidad)/$ingrediente->cantidad_ingrediente);
+                  $costoTotalIngredientes = $costoTotalIngredientes + $costoIngrediente;
                 }
               }
 
               $costoPreparacion = ($costo_nivel_barista * 4) + $costo_extra_metodo_tradicional;
-              $perdida_ganancia = $producto->precio_de_venta - ($costoIngrediente + $costoPreparacion);
+              $perdida_ganancia = $producto->precio_de_venta - ($costoTotalIngredientes + $costoPreparacion);
 
-              $costoIngrediente = $costoIngrediente + $costoPreparacion;
+              $costoTotalIngredientes = $costoTotalIngredientes + $costoPreparacion;
           ?> 
           <tr>
             <td>{{$producto->nombre_producto}}</td>
             <td>{{$producto->precio_de_venta}}</td>
-            <td>{{$costoIngrediente}}</td>
+            <td>{{$costoTotalIngredientes}}</td>
             @if($perdida_ganancia < 0)
               <td><a class="btn btn-danger loading disabled">{{$perdida_ganancia}}</a></td>
             @elseif ($perdida_ganancia >= 0)

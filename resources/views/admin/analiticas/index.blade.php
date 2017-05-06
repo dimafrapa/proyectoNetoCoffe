@@ -10,9 +10,10 @@
   @foreach($productos as $productoAuxiliar)
       <?php
 
-        $costoDeLosIngredientes = 0;
         $costoBaristaMetodo = 0;
         $costoTotalProduccion = 0;
+        $costoIngrediente = 0;
+        $costoTotalIngredientes = 0;
 
           if($productoAuxiliar->nombre_producto = $nombre_productoAuxiliar){
               $newstring = $productoAuxiliar->ingredientes_del_producto;
@@ -21,19 +22,21 @@
                 $posDelId = strpos($newstring, ';', 0);
                 $ingrediente_id = substr($newstring, 0, $posDelId);
                 
-                $posDeLaCantidad = strpos($newstring, ';', 0);
-                $cantidad = substr($newstring, 0, $posDeLaCantidad);
+                $posDeLaCantidad = strpos($newstring, ';', ($posDelId + 1));
+                $cantidad = substr($newstring, $posDelId + 1, ($posDeLaCantidad - $posDelId -1));
                 
                 if($ingrediente->id == $ingrediente_id){
-                  $newstring = str_replace($ingrediente_id . ';', '', $newstring);
-                  $newstring = str_replace($cantidad . ';', '', $newstring);
 
-                  $costoDeLosIngredientes = $costoDeLosIngredientes + (($ingrediente->costo_supermercado_ingrediente*$cantidad)/$ingrediente->cantidad_ingrediente);
+                  $stringAEliminar = substr($newstring,0, $posDeLaCantidad+1);
+                  $newstring = str_replace($stringAEliminar, ' ', $newstring);
+                  
+                  $costoIngrediente = (($ingrediente->costo_supermercado_ingrediente*$cantidad)/$ingrediente->cantidad_ingrediente);
+                  $costoTotalIngredientes = $costoTotalIngredientes + $costoIngrediente;
                 }
               }
 
               $costoBaristaMetodo = $costo_nivel_barista + $costo_extra_metodo_tradicional;
-              $costoTotalProduccion = $costoDeLosIngredientes + $costoBaristaMetodo;
+              $costoTotalProduccion = $costoTotalIngredientes + $costoBaristaMetodo;
 
               $costoAnterior = $costo_actual;
               $costo_actual = $costoTotalProduccion;
