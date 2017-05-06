@@ -30,16 +30,25 @@ class AnaliticasController extends Controller
 * el producto, la lista de productos, la lista de ingredientes, la lista de metodos y los costos extras por barista
 * y metodo.
 */
-    if($request->nivel_barista ==  'Nivel 1'){
+    if($request->nivel_barista ==  'Nivel 1' ){
 
       $costo_nivel_barista = 200;
 
       if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 150;
+        $costo_extra_metodo_tradicional = 300;
       }
 
       if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 350;
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
       }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
@@ -70,7 +79,25 @@ class AnaliticasController extends Controller
     if($request->nivel_barista == 'Nivel 2'){
 
       $costo_nivel_barista = 400;
-      $costo_extra_metodo_tradicional = 250;
+
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
+    
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -100,7 +127,24 @@ class AnaliticasController extends Controller
     if($request->nivel_barista == 'Nivel 3'){
 
       $costo_nivel_barista = 600;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -129,7 +173,24 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 4'){
       $costo_nivel_barista = 800;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -159,7 +220,24 @@ class AnaliticasController extends Controller
     if($request->nivel_barista == 'Nivel 5'){
       
       $costo_nivel_barista = 1000;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -188,7 +266,24 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 6'){
       $costo_nivel_barista = 1200;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -217,7 +312,24 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 7'){
       $costo_nivel_barista = 1400;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -246,7 +358,24 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 8'){
       $costo_nivel_barista = 1600;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -275,7 +404,24 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 9'){
       $costo_nivel_barista = 1800;
-      $costo_extra_metodo_tradicional = 250;
+      
+
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
@@ -304,7 +450,24 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 10'){
       $costo_nivel_barista = 2000;
-      $costo_extra_metodo_tradicional = 250;
+      
+      
+      if($request->nombre_metodo ==  'Artesanal'){
+        $costo_extra_metodo_tradicional = 300;
+      }
+
+      if($request->nombre_metodo ==  'Prensa Francesa'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+      if($request->nombre_metodo ==  'Chemex'){
+        $costo_extra_metodo_tradicional = 700;
+      }
+
+
+      if($request->nombre_metodo ==  'Sifon'){
+        $costo_extra_metodo_tradicional = 900;
+      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
