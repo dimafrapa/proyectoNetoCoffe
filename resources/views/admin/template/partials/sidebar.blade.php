@@ -71,7 +71,7 @@
             <li class="treeview">
                 <a href="#"><i class='glyphicon glyphicon-random'></i> <span>{{ trans('Analítica') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('admin/relacionarCafe/index')}}">{{ trans('Relacionar Café') }}</a></li>
+                    <li><a href="{{url('admin/analiticas/index')}}">{{ trans('Relacionar Café') }}</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

@@ -1,0 +1,115 @@
+@extends('layouts.app')
+
+@section('htmlheader_title')
+  Análisis Importantes
+@endsection
+
+
+@section('main-content')
+
+      <?php
+
+        $costoIngrediente = 0;
+        $perdida_ganancia = 0;
+        $costoPreparacion = 0;
+        $newstring = $producto->ingredientes_del_producto;
+          foreach ($ingredientes as $ingrediente) {
+
+            $posDelId = strpos($newstring, ';', 0);
+            $ingrediente_id = substr($newstring, 0, $posDelId);
+            
+            $posDeLaCantidad = strpos($newstring, ';', 0);
+            $cantidad = substr($newstring, 0, $posDeLaCantidad);
+            
+            if($ingrediente->id == $ingrediente_id){
+              $newstring = str_replace($ingrediente_id . ';', '', $newstring);
+              $newstring = str_replace($cantidad . ';', '', $newstring);
+
+              $costoIngrediente = $costoIngrediente + (($ingrediente->costo_supermercado_ingrediente*$cantidad)/$ingrediente->cantidad_ingrediente);
+            }
+          }
+
+          $costoPreparacion = ($costo_nivel_barista * 4) + $costo_extra_metodo_tradicional;
+          $perdida_ganancia = $producto->precio_de_venta - ($costoIngrediente + $costoPreparacion);
+
+          $costoIngrediente = $costoIngrediente + $costoPreparacion;
+
+          $costoTotal = $costo_nivel_barista + $costoIngrediente + $costo_extra_metodo_tradicional;
+          $costo_actual = $costoTotal;
+      ?> 
+
+          <!--Aqui va el formulario de registro de un nuevo barista-->
+          <form class="row" role="form" action="{{route('admin.analiticas.store')}}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <div class="box-body">
+              <h5>Costo extra Barista nivel 1 = 200;
+                  Costo extra Barista nivel 2 = 400;
+                  Costo extra Barista nivel 3 = 600;
+                  Costo extra Barista nivel 4 = 800;
+                  Costo extra Barista nivel 5 = 1000;
+                  Costo extra Barista nivel 6 = 1200;
+                  Costo extra Barista nivel 7 = 1400;
+                  Costo extra Barista nivel 8 = 1600;
+                  Costo extra Barista nivel 9 = 1800;
+                  Costo extra Barista nivel 10 = 2000;
+                  Costo extra Metodo Tradicional = 250;</h5>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4">Baristas
+                      <select class="form-control" type="text" name="nivel_barista" style="width: 100%;">
+                          <optgroup label="BARISTAS">
+                              <option>Nivel 1</option>
+                              <option>Nivel 2</option>
+                              <option>Nivel 3</option>
+                              <option>Nivel 4</option>
+                              <option>Nivel 5</option>
+                              <option>Nivel 6</option>
+                              <option>Nivel 7</option>
+                              <option>Nivel 8</option>
+                              <option>Nivel 9</option>
+                              <option>Nivel 10</option>
+                          </optgroup>
+                      </select>
+                    </div>
+
+                    <div class="col-md-4">Productos
+                      <select class="form-control" type="text" name="nombre_producto" style="width: 100%;">
+                          <optgroup label="PRODUCTOS">
+                            @foreach($productos as $producto)
+                                <option>{{$producto->nombre_producto}}</option>
+                            @endforeach
+                          </optgroup>
+                      </select>
+                    </div>
+
+                    <div class="col-md-4">Metodos
+                      <select class="form-control" type="text" name="nombre_metodo" style="width: 100%;">
+                          <optgroup label="MÉTODOS">
+                            @foreach($metodos as $metodo)
+                                <option>{{$metodo->nombre_metodo}}</option>
+                            @endforeach
+                          </optgroup>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                      <label for="costo_anterior">Costo Anterior</label>
+                      <input type="text" readonly="readonly" class="form-control" name="costo_anterior" value="{{$costo_anterior}}">
+                  </div>
+
+                  <div class="col-md-6">
+                      <label for="costo_anterior">Costo Actual</label>
+                      <input type="text" readonly="readonly" class="form-control" name="costo_anterior" value="{{$costo_actual}}">
+                  </div>
+                </div>
+
+                <div class="box-footer" width="100%" style=" width: 100%;">
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </div>
+            </div>
+          </form>
+  <hr>
+@endsection

@@ -79,6 +79,14 @@ GRUPO DE RUTAS PARA EL CONTROLADOR DE LA TABLA DE PERDIDADS Y GANANCIAS.
         Route::get('tablas/{id}/edit', ['uses' => 'TablasController@edit', 'as' => 'admin.tablas.edit']);
         Route::post('tablas/{id}/update', ['uses' => 'TablasController@update', 'as' => 'admin.tablas.update']);
 
+/*
+GRUPO DE RUTAS PARA EL CONTROLADOR DE LA TABLA DE ANALITICAS.
+*/
+        Route::resource('analiticas', 'AnaliticasController');
+        Route::get('analiticas/{id}/destroy', ['uses' => 'AnaliticasController@destroy', 'as' => 'admin.analiticas.destroy']);
+        Route::get('analiticas/{id}/show', ['uses' => 'AnaliticasController@show', 'as' => 'admin.analiticas.show']);
+        Route::get('analiticas/{id}/edit', ['uses' => 'AnaliticasController@edit', 'as' => 'admin.analiticas.edit']);
+        Route::post('analiticas/{id}/update', ['uses' => 'AnaliticasController@update', 'as' => 'admin.analiticas.update']);
 
     });
 
