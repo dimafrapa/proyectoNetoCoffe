@@ -204,16 +204,5 @@ class LoginTest extends TestCase
             ->see('We have e-mailed your password reset link!');
     }
 
-    /**
-     * Test send password reset user not exists.
-     *
-     * @return void
-     */
-    public function testSendPasswordResetUserNotExists()
-    {
-        $this->visit('password/reset')
-            ->type('notexistingemail@gmail.com', 'email')
-            ->press('Send Password Reset Link')
-            ->see('There were some problems with your input');
-    }
+  
 }
