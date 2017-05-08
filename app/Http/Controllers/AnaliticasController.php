@@ -32,7 +32,7 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista ==  'Nivel 1' ){
 
-      $costo_nivel_barista = 200;
+      $costo_nivel_barista = 100;
 
       if($request->nombre_metodo ==  'Artesanal'){
         $costo_extra_metodo_tradicional = 300;

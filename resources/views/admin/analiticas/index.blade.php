@@ -48,7 +48,7 @@
           <form class="row" role="form" action="{{route('admin.analiticas.store')}}" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <div class="box-body">
-                  <div class="col-md-3">Costo extra Barista nivel 1 = 200</div>
+                  <div class="col-md-3">Costo extra Barista nivel 1 = 100</div>
                   <div class="col-md-3">Costo extra Barista nivel 2 = 400</div>
                   <div class="col-md-3">Costo extra Barista nivel 3 = 600</div>
                   <div class="col-md-3">Costo extra Barista nivel 4 = 800</div>
