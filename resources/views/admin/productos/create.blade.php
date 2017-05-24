@@ -14,6 +14,7 @@
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Registrar un Nuevo Producto
           </a>
+          @include('flash::message')
         </h4>
       </div>
       <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -40,7 +41,6 @@
                       <div class="form-group form-group-multiple-selects col-xs-11 col-sm-8 col-md-4">
                       <div class="input-group input-group-multiple-select col-xs-12">
                           <select class="form-control" type="text" name="lista_ingredientes[]" style="width: 100%;">
-                            <option>Seleccionar Ingrediente</option>
                             @foreach($ingredientes as $ingrediente)
                               <option>{{$ingrediente->nombre_ingrediente}}</option>
                             @endforeach
@@ -58,7 +58,7 @@
                   <div class="row">
                       <div class="form-group form-group-options col-xs-11 col-sm-8 col-md-4">
                       <div class="input-group input-group-option col-xs-12">
-                        <input type="number" min="1" max="1000" name="cantidades[]" class="form-control" placeholder="Cantidad en gramos o mililitros.">
+                        <input type="number" min="1" max="1000" name="cantidades[]" class="form-control" placeholder="Cantidad en gramos o mililitros." required>
                         <span class="input-group-addon input-group-addon-remove">
                           <span class="glyphicon glyphicon-trash"></span>
                         </span>
@@ -66,7 +66,7 @@
                     </div>
                   </div>
               </div>
-                  
+
             <div class="box-footerProductos">
               <button type="submit" class="btn btn-primary">Agregar</button>
             </div>
@@ -74,7 +74,7 @@
           </form>
 
         </div>
-              
+
       </div>
     </div>
   </div>

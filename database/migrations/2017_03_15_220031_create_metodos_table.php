@@ -18,6 +18,7 @@ class CreateMetodosTable extends Migration
             $table->longText('descripcion_metodo');
             $table->integer('tiempo_aprox_metodo')->length(300);
             $table->integer('categoria_metodo')->length(11);
+            $table->integer('costo_extra')->length(300);
             $table->timestamps();
         });
     }
@@ -32,4 +33,3 @@ class CreateMetodosTable extends Migration
         Schema::drop('metodos');
     }
 }
-

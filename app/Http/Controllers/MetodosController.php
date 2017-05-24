@@ -32,6 +32,7 @@ class MetodosController extends Controller
     $metodo->descripcion_metodo=strtoupper($request->descripcion_metodo);
     $metodo->tiempo_aprox_metodo=$request->tiempo_aprox_metodo;
     $metodo->categoria_metodo=$request->categoria_metodo;
+    $metodo->costo_extra = $request->costo_extra;
 
     $metodo->save();
 

@@ -13,6 +13,7 @@
         <th>Nombre</th>
         <th>Descripción</th>
         <th>Tiempo</th>
+        <th>Costo Extra</th>
         <th>Categoría</th>
       </tr>
     </thead>
@@ -22,6 +23,7 @@
           <td>{{$metodo->nombre_metodo}}</td>
           <td>{{$metodo->descripcion_metodo}}</td>
           <td>{{$metodo->tiempo_aprox_metodo}}</td>
+          <td>{{$metodo->costo_extra}}</td>
           <td>{{$metodo->categoria_metodo}}</td>
           <td>
               <a href="{{ route('admin.metodos.destroy',$metodo->id) }}" class="btn btn-danger" onclick="return confirm('¿Seguro desea eliminarlo?')">

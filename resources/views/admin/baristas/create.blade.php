@@ -14,6 +14,7 @@
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Registrar un Nuevo Barista
           </a>
+          @include('flash::message')
         </h4>
       </div>
       <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -188,7 +189,7 @@
               <!--/////////////////////////////////////// FIN RANGO DEL BARISTA /////////////////////////////////////// -->
           </form>
         </div>
-              
+
       </div>
     </div>
   </div>

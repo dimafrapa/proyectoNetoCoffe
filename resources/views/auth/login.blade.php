@@ -47,8 +47,6 @@
             </div><!-- /.col -->
         </div>
     </form>
-
-    <a href="{{ url('/password/reset') }}">{{ trans('Olvide mi contraseña') }}</a><br>
     <a href="{{ url('/register') }}" class="text-center">{{ trans('Registrarme') }}</a>
 
 </div><!-- /.login-box-body -->

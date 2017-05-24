@@ -24,6 +24,7 @@ class AnaliticasController extends Controller
 **/
   public function store(Request $request){
 
+    $costo_extra_metodo_tradicional  = 0;
 /**
 * Condicion if ppara cuando se selecciona un barista de nivel 1
 * Se encuentra el prroducto seleccionado y se le envian a la vista los siguientes datos:
@@ -34,28 +35,17 @@ class AnaliticasController extends Controller
 
       $costo_nivel_barista = 100;
 
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
-
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -80,30 +70,17 @@ class AnaliticasController extends Controller
 
       $costo_nivel_barista = 400;
 
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
-    
-
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -127,30 +104,18 @@ class AnaliticasController extends Controller
     if($request->nivel_barista == 'Nivel 3'){
 
       $costo_nivel_barista = 600;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -173,30 +138,18 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 4'){
       $costo_nivel_barista = 800;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -218,32 +171,20 @@ class AnaliticasController extends Controller
 * y metodo.
 */
     if($request->nivel_barista == 'Nivel 5'){
-      
+
       $costo_nivel_barista = 1000;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -266,30 +207,18 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 6'){
       $costo_nivel_barista = 1200;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -312,30 +241,18 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 7'){
       $costo_nivel_barista = 1400;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -358,30 +275,18 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 8'){
       $costo_nivel_barista = 1600;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -404,30 +309,18 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 9'){
       $costo_nivel_barista = 1800;
-      
-
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -450,30 +343,18 @@ class AnaliticasController extends Controller
 */
     if($request->nivel_barista == 'Nivel 10'){
       $costo_nivel_barista = 2000;
-      
-      
-      if($request->nombre_metodo ==  'Artesanal'){
-        $costo_extra_metodo_tradicional = 300;
-      }
-
-      if($request->nombre_metodo ==  'Prensa Francesa'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-      if($request->nombre_metodo ==  'Chemex'){
-        $costo_extra_metodo_tradicional = 700;
-      }
-
-
-      if($request->nombre_metodo ==  'Sifon'){
-        $costo_extra_metodo_tradicional = 900;
-      }
 
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
 
       $metodos =DB::table('metodos')->select('metodos.*')->
             orderBy('nombre_metodo','asc')->get();
+
+      foreach ($metodos as $metodoActual) {
+        if (strcmp($metodoActual->nombre_metodo, $request->nombre_metodo) == 0) {
+          $costo_extra_metodo_tradicional = $metodoActual->costo_extra;
+        }
+      }
 
       $productos =DB::table('productos')->select('productos.*')->
             orderBy('nombre_producto','asc')->get();
@@ -517,7 +398,7 @@ class AnaliticasController extends Controller
       $nombre_productoAuxiliar = '';
 
       return view('admin.analiticas.index')->with('ingredientes',$ingredientes)->with('costo_anterior',$costo_anterior)->with('costo_actual',$costo_actual)->with('nombre_productoAuxiliar',$nombre_productoAuxiliar)->with('productos',$productos)->with('productosAuxiliares',$productosAuxiliares)->with('metodos',$metodos)->with('costo_nivel_barista',$costo_nivel_barista)->with('costo_extra_metodo_tradicional',$costo_extra_metodo_tradicional);
-  
+
   }
 
 }

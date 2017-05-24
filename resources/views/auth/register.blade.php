@@ -55,7 +55,7 @@
                     </div><!-- /.col -->
                     <div class="col-xs-8" width="90%" style=" width: 90%;">
                         <div class="form-group" >
-                            <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('Terminos y Condiciones') }}</button>
+                            <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('Términos y Condiciones') }}</button>
                         </div>
                     </div><!-- /.col -->
                     <div class="col-xs-4" width="100%" style=" width: 100%;">

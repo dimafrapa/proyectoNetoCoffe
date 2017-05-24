@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Producto;
 use App\Ingrediente;
+use Laracasts\Flash\Flash;
+use Laracasts\Flash\FlashProviders;
 use Illuminate\Support\Facades\DB;
 
 class ProductosController extends Controller
@@ -22,7 +24,7 @@ class ProductosController extends Controller
       $productos = Producto::orderBy('nombre_producto')->paginate(10);
       $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
             orderBy('nombre_ingrediente','asc')->get();
-            
+
       return view('admin.productos.index')->with('productos',$productos)->with('ingredientes',$ingredientes);
   }
 
@@ -42,32 +44,40 @@ class ProductosController extends Controller
     $lista_id_ingredientes = '';
     $contador=0;
 
-/**
-*
-* este foreach se usa para encontrar el id de todos los ingredientes de este producto y luego los guarda en una variable string
-* que se le es guardad al producto.
-**/
-        foreach ($request->lista_ingredientes as $nombre) {
-          foreach ($ingredientes as $ingrediente) {
-                    
-            if($ingrediente->nombre_ingrediente == $nombre){
+    $resultadoAuxiliar = count($request->lista_ingredientes);
+   
+    if($resultadoAuxiliar == 0){
+      Flash::error('Debe seleccionar los ingredientes y sus respectivas cantidades');
+      return redirect()->route('admin.productos.create');
+    }
+    else{
+      /**
+      *
+      * este foreach se usa para encontrar el id de todos los ingredientes de este producto y luego los guarda en una variable string
+      * que se le es guardad al producto.
+      **/
+              foreach ($request->lista_ingredientes as $nombre) {
+                foreach ($ingredientes as $ingrediente) {
 
-                $lista_id_ingredientes = $lista_id_ingredientes . $ingrediente->id . ';' . $request->cantidades[$contador] . ';';
-            }
-          }
-          $contador = $contador+1;
-        }
+                  if($ingrediente->nombre_ingrediente == $nombre){
+
+                      $lista_id_ingredientes = $lista_id_ingredientes . $ingrediente->id . ';' . $request->cantidades[$contador] . ';';
+                  }
+                }
+                $contador = $contador+1;
+              }
 
 
 
-    $producto->ingredientes_del_producto=$lista_id_ingredientes;
-    
-    $producto->save();
+          $producto->ingredientes_del_producto=$lista_id_ingredientes;
 
-    $productoAuxiliar = new Producto();
-    $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
-            orderBy('nombre_ingrediente','asc')->get();
-    return view('admin.productos.create')->with('producto',$productoAuxiliar)->with('ingredientes',$ingredientes);
+          $producto->save();
+
+          $productoAuxiliar = new Producto();
+          $ingredientes =DB::table('ingredientes')->select('ingredientes.*')->
+                  orderBy('nombre_ingrediente','asc')->get();
+          return view('admin.productos.create')->with('producto',$productoAuxiliar)->with('ingredientes',$ingredientes);
+    }
   }
 
 /**
@@ -81,7 +91,7 @@ class ProductosController extends Controller
 
     return redirect()->route('admin.productos.index');
   }
-  
+
 /**
 * Este metodo es usado solo para redireccionamiento. Cuando se desee mostrar la pagina de crear un producto el controlador ejecuta
 * este metodo y retorna la vista correspodiente.

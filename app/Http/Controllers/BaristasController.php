@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Laracasts\Flash\Flash;
+use Laracasts\Flash\FlashProviders;
 use App\Http\Controllers\Controller;
 use App\Barista;
+use Illuminate\Support\Facades\DB;
 
 class BaristasController extends Controller
 {
@@ -34,18 +37,31 @@ class BaristasController extends Controller
     $barista->num_asistencia_competencias=$request->num_asistencia_competencias;
     $barista->rango_barista=$request->rango_barista;
 
-    $barista->save();
+    $verificacion = false;
+    $listaBaristas =DB::table('baristas')->select('baristas.cedula')->get();
+    foreach ($listaBaristas as $baristaAuxiliar) {
+      if($baristaAuxiliar->cedula == $request->cedula){
+        $verificacion = true;
+      }
+    }
+    if($verificacion == false){
+      $barista->save();
 
-    $porcentajeExperiencia = 0;
-    $porcentajeCursos = 0;
-    $porcentajeEstudiosProfesionales = 0;
-    $porcentajeCertificaciones = 0;
-    $porcentajeCompetencias = 0;
+      $porcentajeExperiencia = 0;
+      $porcentajeCursos = 0;
+      $porcentajeEstudiosProfesionales = 0;
+      $porcentajeCertificaciones = 0;
+      $porcentajeCompetencias = 0;
 
-    $rangoBarista = 0;
+      $rangoBarista = 0;
 
-    $baristaAuxiliar = new Barista();
-    return view('admin.baristas.create')->with('barista',$baristaAuxiliar)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
+      $baristaAuxiliar = new Barista();
+      return view('admin.baristas.create')->with('barista',$baristaAuxiliar)->with('porcentajeExperiencia',$porcentajeExperiencia)->with('porcentajeCursos',$porcentajeCursos)->with('porcentajeEstudiosProfesionales',$porcentajeEstudiosProfesionales)->with('porcentajeCertificaciones',$porcentajeCertificaciones)->with('porcentajeCompetencias',$porcentajeCompetencias)->with('rangoBarista',$rangoBarista);
+    }else{
+      Flash::error('La cedula ' . $request->cedula . ' ya esta REGISTRADA');
+      return redirect()->route('admin.baristas.create');
+    }
+
   }
 
   /**

@@ -38,6 +38,12 @@
                 <label for="tiempo_aprox_metodo">Tiempo Duración (Minutos)</label>
                 <input type="number" class="form-control" name="tiempo_aprox_metodo" value="{{$metodo->tiempo_aprox_metodo}}" placeholder="En minutos por favor." required>
               </div>
+
+              <div class="form-group">
+                <label for="costo_extra">Costo extra por hacer un producto aplicando este método</label>
+                <input type="number" class="form-control" name="costo_extra" value="{{$metodo->costo_extra}}" placeholder="En pesos por favor." required>
+              </div>
+
               <div class="form-group">
                 <label for="categoria_metodo">Categoría</label>
                 <input type="number" min="1" max="10" class="form-control" name="categoria_metodo" value="{{$metodo->categoria_metodo}}" placeholder="Solo un número del 1-10 por favor." required>
@@ -50,7 +56,7 @@
           </form>
 
         </div>
-              
+
       </div>
     </div>
   </div>

@@ -21,15 +21,15 @@
 
                 $posDelId = strpos($newstring, ';', 0);
                 $ingrediente_id = substr($newstring, 0, $posDelId);
-                
+
                 $posDeLaCantidad = strpos($newstring, ';', ($posDelId + 1));
                 $cantidad = substr($newstring, $posDelId + 1, ($posDeLaCantidad - $posDelId -1));
-                
+
                 if($ingrediente->id == $ingrediente_id){
 
                   $stringAEliminar = substr($newstring,0, $posDeLaCantidad+1);
                   $newstring = str_replace($stringAEliminar, ' ', $newstring);
-                  
+
                   $costoIngrediente = (($ingrediente->costo_supermercado_ingrediente*$cantidad)/$ingrediente->cantidad_ingrediente);
                   $costoTotalIngredientes = $costoTotalIngredientes + $costoIngrediente;
                 }
@@ -41,7 +41,7 @@
               $costoAnterior = $costo_actual;
               $costo_actual = $costoTotalProduccion;
             }
-      ?> 
+      ?>
   @endforeach
 
           <!--Aqui va el formulario de registro de un nuevo barista-->
@@ -93,10 +93,9 @@
                     <div class="col-md-4">Metodos
                       <select class="form-control" type="text" name="nombre_metodo" style="width: 100%;">
                           <optgroup label="MÉTODOS">
-                              <option>Artesanal</option>
-                              <option>Prensa Francesa</option>
-                              <option>Chemex</option>
-                              <option>Sifon</option>
+                            @foreach($metodos as $metodo)
+                              <option>{{$metodo->nombre_metodo}}</option>
+                              @endforeach
                           </optgroup>
                       </select>
                     </div>
